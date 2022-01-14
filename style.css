@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: :black;
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    perspective: 1000px; /*원근감을 표현해주는 css속성으로 최상위 <div>태그에 지정 , 값이 작으면 가까이서(원근감 극적) 크면 멀리서 보는 것(원근감 미비)*/
+}
+
+.flip-btn{
+    width: 200px;
+    height: 100px;
+    color: white;
+    text-align: center;
+    line-height: 100px; /*height 값과 line-height 값을 같게 주면 수직 중앙 정렬, 텍스트가 한줄일 경우만 해당*/
+    transform-style: preserve-3d;   /*2D를 3D로 보이게 하는 속성*/
+    /* transform: rotateX(-90deg); */
+    transition: 1.5s;    /*자식의 transform을 0.5초동안 지연시켜 에니메이션 효과가 나도록하는 효과*/
+    cursor: pointer;    /*마우스 포인트를 손가락으로 변경ㅠ*/
+}
+
+.flip-btn:hover{
+    transform: rotateX(-90deg); /*마우스가 올라오면 X축으로 -90도 회전토록 적용*/
+}
+
+.front{
+    background-color: goldenrod;
+    height: 100px;
+    transform: translateZ(50px); /*평면구조로 보고 있으니, Z축으로 50px 이동하면 내쪽으로 50px 다가오는 효과*/
+}
+
+.back{
+    background-color: darkgoldenrod;
+    height: 100px;
+    transform: rotateX(90deg) translateZ(150px); /*X축을 90회전 하여 선처럼 보이는 상태에서 Z축으로 150px 이동하니 선상태로 150px 위로 이동*/
+}
